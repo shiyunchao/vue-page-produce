@@ -236,59 +236,6 @@ class HistogramOne extends Histogram {
   }
 }
 
-
-class ScrollBoard extends Widget {
-  static componentDescription = {
-    name: '轮播表类',
-    parent: 'widget'
-  }
-
-  constructor(constructorData) {
-    super(constructorData)
-    this.setDragSize(constructorData, {
-      width: 960,
-      height: 780
-    })
-  }
-}
-
-class ScrollBoardChild extends ScrollBoard {
-  static componentDescription = {
-    name: '轮播表一',
-    parent: 'ScrollBoard',
-    img: 'scrollboard.png'
-  }
-  constructor(constructorData) {
-    super(constructorData)
-    this.componentKey = 'ScrollBoardChild'
-
-    this.setStyleFields(constructorData, {
-      color: widgetFields.FieldColorPicker(),
-      fontSize: widgetFields.FieldSelect({
-        label: '字体大小',
-        options: ['12px', '20px', '30px']
-      })
-    })
-
-    this.setFields(constructorData, {
-      isFakeData: widgetFieldsCombine.FieldsDataSource({
-        validator: [validatorCombine.validateFieldDataSource()],
-        fakeData: JSON.stringify(jsonTemplate.ForScrollBoard),
-        radios: [
-          {
-            label: '使用模拟数据',
-            value: 'fake'
-          },
-          {
-            label: '使用接口数据',
-            value: 'real'
-          }
-        ]
-      })
-    })
-  }
-}
-
 class ImageModule extends Widget {
   static componentDescription = {
     name: '图片类',
@@ -308,20 +255,22 @@ class PageImage extends ImageModule {
   static componentDescription = {
     name: '单页图片',
     parent: 'ImageModule',
-    img: 'scrollboard.png'
+    img: 'TitleChildOne_icon.jpg'
   }
   constructor(constructorData) {
     super(constructorData)
     this.componentKey = 'PageImage'
 
     this.setStyleFields(constructorData, {
-      // color: widgetFields.FieldColorPicker(),
-      // fontSize: widgetFields.FieldSelect({
-      //   label: '字体大小',
-      //   options: ['12px', '20px', '30px']
-      // })
+      width: widgetFields.FieldInput({
+        label: '宽(px)',
+        validator: [validators.requireInput('请输入图片宽度')]
+      }),
+      height: widgetFields.FieldInput({
+        label: '高(px)',
+        validator: [validators.requireInput('请输入图片高度')]
+      })
     })
-    console.log('constructorData', constructorData)
 
     this.setFields(constructorData, {
       url: widgetFields.FieldUpload({
@@ -330,6 +279,59 @@ class PageImage extends ImageModule {
     })
   }
 }
+
+// class ScrollBoard extends Widget {
+//   static componentDescription = {
+//     name: '轮播表类',
+//     parent: 'widget'
+//   }
+
+//   constructor(constructorData) {
+//     super(constructorData)
+//     this.setDragSize(constructorData, {
+//       width: 960,
+//       height: 780
+//     })
+//   }
+// }
+
+// class ScrollBoardChild extends ScrollBoard {
+//   static componentDescription = {
+//     name: '轮播表一',
+//     parent: 'ScrollBoard',
+//     img: 'scrollboard.png'
+//   }
+//   constructor(constructorData) {
+//     super(constructorData)
+//     this.componentKey = 'ScrollBoardChild'
+
+//     this.setStyleFields(constructorData, {
+//       color: widgetFields.FieldColorPicker(),
+//       fontSize: widgetFields.FieldSelect({
+//         label: '字体大小',
+//         options: ['12px', '20px', '30px']
+//       })
+//     })
+
+//     this.setFields(constructorData, {
+//       isFakeData: widgetFieldsCombine.FieldsDataSource({
+//         validator: [validatorCombine.validateFieldDataSource()],
+//         fakeData: JSON.stringify(jsonTemplate.ForScrollBoard),
+//         radios: [
+//           {
+//             label: '使用模拟数据',
+//             value: 'fake'
+//           },
+//           {
+//             label: '使用接口数据',
+//             value: 'real'
+//           }
+//         ]
+//       })
+//     })
+//   }
+// }
+
 
 // class HistogramTwo extends Histogram {
 //   static componentDescription = {
@@ -500,6 +502,6 @@ class PageImage extends ImageModule {
 // }
 // TestComponentOne, TestComponentTwo, TestComponentThree,
 
-export { Title, TitleChildOne, TitleChildTwo, Histogram, HistogramOne}
+export { Title, TitleChildOne, TitleChildTwo, Histogram, HistogramOne, ImageModule, PageImage }
 // export { Title, TitleChildOne, TitleChildTwo }
 

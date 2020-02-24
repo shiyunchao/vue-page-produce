@@ -40,6 +40,7 @@ import TestComponentThree from './testComponents/testComponentThree'
 import TitleChildOne from './components/title/TitleChildOne/index'
 import TitleChildTwo from './components/title/TitleChildTwo/index'
 import HistogramOne from './components/histogram/index'
+import PageImage from './components/images/pageImage'
 
 export default {
   name: 'myDraggable',
@@ -50,7 +51,8 @@ export default {
     TestComponentThree,
     TitleChildOne,
     TitleChildTwo,
-    HistogramOne
+    HistogramOne,
+    PageImage
   },
   props: {},
   data() {

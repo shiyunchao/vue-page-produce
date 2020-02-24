@@ -43,6 +43,7 @@ import FieldColorPicker from './formFields/_field_color_picker'
 import FieldSelect from './formFields/_field_select'
 import FieldRadio from './formFields/_field_radio'
 import FieldsDataSource from './formFieldsCombine/_fields_data_source'
+import FieldUpload from './formFields/_field_upload'
 
 export default {
   components: {
@@ -50,7 +51,8 @@ export default {
     FieldColorPicker,
     FieldSelect,
     FieldRadio,
-    FieldsDataSource
+    FieldsDataSource,
+    FieldUpload
   },
   data() {
     return {

@@ -33,6 +33,15 @@ const widgetFields = {
       validator,
       errorMsg: ''
     }
+  },
+
+  FieldUpload() {
+    return {
+      type: 'FieldUpload',
+      formModel: '',
+      label: ''
+      // validator: ''
+    }
   }
 }
 
